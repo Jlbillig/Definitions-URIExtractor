@@ -2,18 +2,16 @@ import re
 
 def extract_definitions_and_uris(input_file):
     try:
-        # Open the input text file and read its content
+       
         with open(input_file, 'r') as file:
             content = file.read()
 
-        # Regular expression to match a URI, label, and definition
+        
         pattern = re.compile(r'###\s*(https://[^\s]+)\s+.*?rdfs:label\s+"([^"]+)"@en\s+.*?skos:definition\s+"([^"]+)"@en', re.DOTALL)
 
-        # Find all matches in the content
         matches = pattern.findall(content)
 
-        # Print the results to the IDLE console
-        print("Definitions and URIs:\n")
+             print("Definitions and URIs:\n")
         for uri, label, definition in matches:
             print(f"URI: {uri}")
             print(f"Label: {label}")
@@ -24,10 +22,7 @@ def extract_definitions_and_uris(input_file):
     except Exception as e:
         print(f"An error occurred: {e}")
 
-# Usage example
-# Make sure the path is correct:
-input_file = '/Users/YOURNAME/Downloads/GepspatialOntology.txt'  # Update with your actual path
+input_file = '/Users/YOURNAME/Downloads/GepspatialOntology.txt' 
 
-# Call the function to print to the console
 extract_definitions_and_uris(input_file)
 
